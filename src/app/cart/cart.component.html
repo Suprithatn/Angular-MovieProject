@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+        <ul class="list-group" *ngIf="cartDetails.length > 0;else noItem">
+            <div class="text-center">
+                <h3>Cart Details</h3>
+            </div>
+            <li class="list-group-item" *ngFor="let cart of cartDetails; let i=index" >
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <img [src]="cart.poster" [alt]="cart.moviename" class="img-responsive" style="height:100px;">
+                    </div>
+                    <div class="col-md-8 col-xs-12">
+                        <h3>{{cart.moviename}}</h3>
+                        <p>{{cart.language}} | {{cart.movieType}}</p>
+                        <a (click)="onRemove(i)" style="cursor: pointer;">Remove</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ng-template #noItem>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgLNLbFmOl-wuybKGc6IrdKYGPxe62xr-wYA&usqp=CAU" alt="">
+                    <h1>Your Cart is empty!</h1>
+                    <p>Looks like you haven't made your choice yet...</p>
+                    <a class="btn btn-danger" type="button" routerLink="/list">Shop Now</a>
+                </div>
+            </div>
+           
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.main-row{
+    padding:10px;
+}
+
+.col-md-6{
+    border:1px solid rgb(221, 221, 221);
+    background-color: #fff;
+    padding:10px;
+    text-align:center;
+    border-radius: 5px;
+}
