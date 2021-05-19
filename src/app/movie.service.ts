@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
-
+  movieAdded = new Subject<{}>();
   isLogin = false;
   cart:any[] = [];
   addedToCart = new Subject<{}[]>();
@@ -70,6 +70,11 @@ export class MovieService {
       'poster': this.movieDetails.find(x => x.movieid === movieId).poster
     });
     this.addedToCart.next(this.cart.slice());
+  }
+
+  addMovie(movie:any){
+    this.movieDetails.push(movie);
+    this.movieAdded.next(this.movieDetails.slice());
   }
 
 }

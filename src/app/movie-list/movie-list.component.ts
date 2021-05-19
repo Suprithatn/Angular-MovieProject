@@ -16,6 +16,7 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.checkLogin();
     this.movieList = this.movieService.movieDetails;
+    console.log(this.movieList);
   }
 
   onAddToCart(index:number){

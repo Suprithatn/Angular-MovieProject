@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <form #movieForm="ngForm" (ngSubmit)="onSubmit(movieForm)">
+            <div class="form-group">
+                <input type="hidden" class="form-control" [ngModel]="lastmovieId + 1" name="movieid" required>
+            </div>
+            <div class="form-group">
+                <label for="">Movie Name</label>
+                <input type="text" class="form-control" ngModel name="moviename" required>
+            </div>
+            <div class="form-group">
+                <label for="">Production Name</label>
+                <input type="text" class="form-control" ngModel name="productionname" required>
+            </div>
+            <div class="form-group">
+                <label for="">Movie Type</label>
+                <select class="form-control" [ngModel]="'Horror'" name="movieType">
+                    <option value="Horror">Horror</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Action">Action</option>
+                    <option value="Thriller">Thriller</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Director</label>
+                <input type="text" class="form-control" ngModel name="director" required>
+            </div>
+            <div class="form-group">
+                <label for="">Cast 1</label>
+                <input type="text" class="form-control" ngModel name="cast1" required>
+            </div>
+            <div class="form-group">
+                <label for="">Cast 2</label>
+                <input type="text" class="form-control" ngModel name="cast2" required>
+            </div>
+            <div class="form-group">
+                <label for="">Language</label>
+                <input type="text" class="form-control" ngModel name="language" required>
+            </div>
+            <div class="form-group">
+                <label for="">Poster</label>
+                <input type="text" class="form-control" ngModel name="poster" required>
+            </div>
+            <div>
+                <button type="submit" 
+                [disabled]="!movieForm.valid"
+                class="btn btn-success">Save</button>
+                <button type="button" (click)="onCancel()" class="btn btn-danger">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Movie Name</th>
+                    <th>Movie Type</th>
+                    <th>Language</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let movie of movieObject; let i=index;">
+                    <td>{{movie.moviename}}</td>
+                    <td>{{movie.movieType}}</td>
+                    <td>{{movie.language}}</td>
+                    <td><a type="button" class="btn btn-danger" (click)="onDelete(i)">X</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

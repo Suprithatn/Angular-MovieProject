@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ChartsModule } from 'ng2-charts';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MovieListComponent,
     CartComponent,
     ContactUsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
